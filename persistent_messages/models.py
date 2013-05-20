@@ -9,11 +9,11 @@ from django.utils.translation import ugettext_lazy as _
 from django.utils.encoding import force_unicode
 
 LEVEL_TAGS = utils.get_level_tags()
-User = settings.AUTH_USER_MODEL
+UserKey = settings.AUTH_USER_MODEL
 
 class Message(models.Model):
-    user = models.ForeignKey(User, blank=True, null=True)
-    from_user = models.ForeignKey(User, blank=True, null=True, related_name="from_user")
+    user = models.ForeignKey(UserKey, blank=True, null=True)
+    from_user = models.ForeignKey(UserKey, blank=True, null=True, related_name="from_user")
     subject = models.CharField(max_length=255, blank=True, default='')
     message = models.TextField()
     LEVEL_CHOICES = (
